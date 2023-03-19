@@ -26,7 +26,7 @@ export default function CourseCard(props: ICourseCard) {
                 </Typography>
                 <Box  sx={{ marginTop: 2 , marginBottom: 2}}>
                     {props.data.tags.map((item) =>
-                        <Chip label={item} size="small" variant="outlined" />
+                        <Chip label={item} size="small" variant="outlined" key={item}/>
                     )}
                 </Box>
                 <Typography variant="body2" color="text.secondary">
