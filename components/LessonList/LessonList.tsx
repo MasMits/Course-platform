@@ -3,8 +3,9 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {ListItemButton, ListItemIcon} from "@mui/material";
-import {ILesson} from "../types/ICourse";
 import LockIcon from '@mui/icons-material/Lock';
+import {ILesson} from "../../types/ICourse";
+import styles from './lesson-list.module.scss'
 
 interface ILessonListProps {
     data: ILesson[],
@@ -21,16 +22,8 @@ export default function LessonList(props: ILessonListProps) {
     };
 
     return (
-        <List
-            sx={{
-                width: '100%',
-                maxWidth: 360,
-                bgcolor: 'background.paper',
-                position: 'relative',
-                overflow: 'auto',
-                maxHeight: 300,
-                '& ul': {padding: 0},
-            }}
+        <List className={styles.list}
+            sx={{  bgcolor: 'background.paper', '& ul': {padding: 0}}}
             subheader={<li/>}
         >
             {props.data.map((item, index) => (
@@ -41,16 +34,14 @@ export default function LessonList(props: ILessonListProps) {
                         key={`item-${item.title}`}
                     >
                         <ListItem>
-                            <ListItemText sx={{color: "white"}} primary={item.title}/>
+                            <ListItemText className={styles.listItemText} primary={item.title}/>
                         </ListItem>
                     </ListItemButton> :
-                    <ListItemButton disabled
-                                    key={`item-${item.title}`}
-                    >
+                    <ListItemButton disabled key={`item-${item.title}`}>
                         <ListItemIcon>
                             <LockIcon/>
                         </ListItemIcon>
-                        <ListItemText sx={{color: "white"}} primary={item.title}>
+                        <ListItemText className={styles.listItemText} primary={item.title}>
                         </ListItemText>
                     </ListItemButton>
             ))}
