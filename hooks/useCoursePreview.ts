@@ -1,6 +1,9 @@
-import {ICourseProps} from "../types/ICourse";
+import {ICourse} from "../types/ICourse";
 import {useEffect, useState} from "react";
 
+export interface ICourseProps {
+    courses: ICourse[]
+}
 
 export function useCoursePreview() {
     async function fetchCourses() {
@@ -28,6 +31,5 @@ export function useCoursePreview() {
         )
     }, [])
 
-    console.log('countPages = ' + countPages)
-    return {courses, countPages: countPages}
+    return {courses: courses, countPages: countPages}
 }

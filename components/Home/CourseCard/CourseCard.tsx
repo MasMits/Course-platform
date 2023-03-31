@@ -4,7 +4,7 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Typography from '@mui/material/Typography';
-import {ICourse} from "../../types/ICourse";
+import {ICourse} from "../../../types/ICourse";
 import {Box, Chip} from "@mui/material";
 import styles from './course.module.scss'
 

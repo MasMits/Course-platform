@@ -9,9 +9,6 @@ export interface ICourse {
     previewImageLink: string
 }
 
-export interface ICourseProps {
-    courses: ICourse[]
-}
 
 export interface ICourseWithLessons {
     containsLockedLessons: boolean,
