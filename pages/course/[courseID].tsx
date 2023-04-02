@@ -28,6 +28,7 @@ export const getServerSideProps = async (ctx: NextPageContext) => {
 
 
 const CoursePage = (course: ICourseWithLessons) => {
+    console.log(course)
     return (
         <Layout>
             <Link href='/'>
