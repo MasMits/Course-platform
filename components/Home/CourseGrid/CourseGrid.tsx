@@ -6,7 +6,6 @@ import {Stack} from "@mui/system";
 import {Box, Pagination, Skeleton} from "@mui/material";
 import * as React from "react";
 import {ICourse} from "../../../types/ICourse";
-import {useCoursePreview} from "../../../hooks/useCoursePreview";
 import {useState} from "react";
 
 export interface ICourseProps {
@@ -15,7 +14,6 @@ export interface ICourseProps {
 }
 
 const CourseGrid = ({courses, countPages}: ICourseProps) => {
-    // const {courses, countPages} = useCoursePreview()
     const [page, setPage] = useState(1);
     const pageHandleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
@@ -25,8 +23,8 @@ const CourseGrid = ({courses, countPages}: ICourseProps) => {
         <>
             {courses !== undefined ? (
                     <>
-                        <Grid container spacing={{xs: 1, sm: 1, md: 3}} columns={{xs: 1, sm: 2, md: 2, xl: 5}}>
-                            {courses.courses.slice((page - 1) * 10, page * 10).map((item) =>
+                        <Grid container spacing={{xs: 1, sm: 1, md: 3}} columns={{xs: 1, sm: 2, md: 3, xl: 4}}>
+                            {courses.courses.slice((page - 1) * 12, page * 12).map((item) =>
                                 <Grid xs={1} className={styles.gridCenter} key={item.id}>
                                     <Link href={`/course/${item.id}`}><CourseCard data={item}/></Link>
                                 </Grid>)
@@ -40,7 +38,7 @@ const CourseGrid = ({courses, countPages}: ICourseProps) => {
                 )
                 : (
                     <>
-                        <Grid container spacing={{xs: 1, sm: 1, md: 3}} columns={{xs: 1, sm: 2, md: 2, xl: 5}}>
+                        <Grid container spacing={{xs: 1, sm: 1, md: 3}} columns={{xs: 1, sm: 2, md: 3, xl: 4}}>
                             {
                                 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map((item) =>
                                     <Grid xs={1}
