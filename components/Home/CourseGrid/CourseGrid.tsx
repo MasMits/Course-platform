@@ -9,7 +9,7 @@ import {ICourse} from "../../../types/ICourse";
 import {useState} from "react";
 
 export interface ICourseProps {
-    courses: { courses: ICourse[] } | undefined
+    courses:  ICourse[]  | undefined
     countPages: number | undefined
 }
 
@@ -18,13 +18,13 @@ const CourseGrid = ({courses, countPages}: ICourseProps) => {
     const pageHandleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
     };
-    courses !== undefined && console.log(courses.courses.length);
+    courses !== undefined && console.log(courses.length);
     return (
         <>
             {courses !== undefined ? (
                     <>
                         <Grid container spacing={{xs: 1, sm: 1, md: 3}} columns={{xs: 1, sm: 2, md: 3, xl: 4}}>
-                            {courses.courses.slice((page - 1) * 12, page * 12).map((item) =>
+                            {courses.slice((page - 1) * 12, page * 12).map((item) =>
                                 <Grid xs={1} className={styles.gridCenter} key={item.id}>
                                     <Link href={`/course/${item.id}`}><CourseCard data={item}/></Link>
                                 </Grid>)

@@ -1,18 +1,31 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import Layout from "../components/Layout/Layout";
-import {useCoursePreview} from "../hooks/useCoursePreview";
 import CourseGrid from "../components/Home/CourseGrid/CourseGrid";
+import {ICourse} from "../types/ICourse";
+import {fetchCoursesPreview} from "../api/fetchCoursesPreview";
 
-export default function Home() {
-    const {courses, countPages} = useCoursePreview()
+export const getServerSideProps = async () => {
+    try {
+        const {courses, countPages} = await fetchCoursesPreview();
+        return {props: {courses, countPages}};
+    } catch {
+        return {props: {error: "notFind"}};
+    }
+}
 
+interface IHomeProps {
+    courses: ICourse[],
+    countPages: number
+}
+
+export default function Home(props: IHomeProps) {
     return (
         <Layout>
             <Typography variant="h2" gutterBottom color="text.primary">
                 Choose your courses!
             </Typography>
-            <CourseGrid courses={courses} countPages={countPages} />
+            <CourseGrid courses={props.courses} countPages={props.countPages}/>
         </Layout>
     )
 }
