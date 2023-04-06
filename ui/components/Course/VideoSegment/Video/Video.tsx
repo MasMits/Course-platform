@@ -9,7 +9,7 @@ export interface IVideoProps {
     url: string
 }
 
-function Video(props: IVideoProps) {
+export function Video(props: IVideoProps) {
     return (
         <div className="App">
             <ReactPlayer
@@ -22,5 +22,3 @@ function Video(props: IVideoProps) {
         </div>
     );
 }
-
-export default Video;

@@ -13,7 +13,7 @@ interface ICourseCard{
     data: ICourse;
 }
 
-export default function CourseCard(props: ICourseCard) {
+export function CourseCard(props: ICourseCard) {
     return (
         <Card className={styles.card}>
             <CardMedia

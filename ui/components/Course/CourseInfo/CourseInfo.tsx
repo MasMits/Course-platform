@@ -8,7 +8,7 @@ export interface ICourseProps {
     data: ICourseWithLessons
 }
 
-const CourseInfo = ({data: course}: ICourseProps) => {
+export const CourseInfo = ({data: course}: ICourseProps) => {
     console.log(course)
     return (
         <Box className={styles.header}>
@@ -29,5 +29,3 @@ const CourseInfo = ({data: course}: ICourseProps) => {
         </Box>
     );
 };
-
-export default CourseInfo;

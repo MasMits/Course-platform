@@ -1,22 +1,20 @@
-import Layout from "../../ui/components/Layout/Layout";
+import {Layout} from "../../ui/components/Layout";
 import Link from "next/link";
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
+import {CourseInfo} from "../../ui/components/Course/CourseInfo";
+import {VideoSegment} from "../../ui/components/Course/VideoSegment";
 import { ICourseWithLessons} from "../../types/ICourse";
 import {NextPageContext} from "next";
-import CourseInfo from "../../ui/components/Course/CourseInfo/CourseInfo";
-import VideoSegment from "../../ui/components/Course/VideoSegment/VideoSegment";
 import {fetchCourseWithLessons} from "../../api/fetchCourseWithLessons";
 
 export const getServerSideProps = async (ctx: NextPageContext) => {
     try {
         const {course} = await fetchCourseWithLessons(ctx);
         return {props: {...course}};
-
     } catch {
         return {props: {error: "notFind"}};
     }
 }
-
 
 const CoursePage = (course: ICourseWithLessons) => {
     console.log(course)
@@ -30,6 +28,5 @@ const CoursePage = (course: ICourseWithLessons) => {
         </Layout>
     );
 };
-
 
 export default CoursePage;

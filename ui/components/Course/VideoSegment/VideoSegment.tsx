@@ -2,16 +2,16 @@ import Grid from "@mui/system/Unstable_Grid";
 import styles from "../../../styles/pages-styles/lesson-page.module.scss";
 import Typography from "@mui/material/Typography";
 import LockIcon from "@mui/icons-material/Lock";
-import LessonList from "./LessonList/LessonList";
+import {LessonList} from "./LessonList";
 import * as React from "react";
 import {ICourseWithLessons} from "../../../../types/ICourse";
-import VideoApp from "./Video/Video";
+import {Video} from "./Video";
 
 export interface ICourseProps {
     data: ICourseWithLessons
 }
 
-const VideoSegment = ({data: course}: ICourseProps) => {
+export const VideoSegment = ({data: course}: ICourseProps) => {
     const [selectedIndex, setSelectedIndex] = React.useState(0);
     const finalLesson = course !== undefined ? course.lessons : [];
 
@@ -26,7 +26,7 @@ const VideoSegment = ({data: course}: ICourseProps) => {
         <Grid className={styles.lessonGrid} container spacing={{xs: 1, sm: 1, md: 2}} columns={{xs: 1, sm: 1, md: 3}}>
             <Grid xs={2}>
                 {course.lessons[selectedIndex].status !== 'locked' ?
-                    <VideoApp url={course.lessons[selectedIndex].link} preview={course.lessons[selectedIndex].previewImageLink + '/course-' + course.lessons[selectedIndex].order + '.webp'}/> :
+                    <Video url={course.lessons[selectedIndex].link} preview={course.lessons[selectedIndex].previewImageLink + '/course-' + course.lessons[selectedIndex].order + '.webp'}/> :
                     <Typography variant="h6" color="text.secondary" className={styles.lockText}>
                         <LockIcon fontSize="large" className={styles.lockIcon}/>
                         Sorry, this lesson is locked, try another one
@@ -42,5 +42,3 @@ const VideoSegment = ({data: course}: ICourseProps) => {
         </Grid>
     );
 };
-
-export default VideoSegment;

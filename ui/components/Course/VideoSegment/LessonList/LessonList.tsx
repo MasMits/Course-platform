@@ -13,7 +13,7 @@ interface ILessonListProps {
     setSelectedIndex: Function
 }
 
-export default function LessonList(props: ILessonListProps) {
+export function LessonList(props: ILessonListProps) {
     const handleListItemClick = (
         event: React.MouseEvent<HTMLDivElement, MouseEvent>,
         index: number,

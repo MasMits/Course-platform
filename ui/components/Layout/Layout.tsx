@@ -4,7 +4,7 @@ import {createTheme} from "@mui/material/styles";
 import {ThemeProvider} from "@mui/material";
 
 
-const Layout = ({children}: PropsWithChildren<{}>) => {
+export const Layout = ({children}: PropsWithChildren<{}>) => {
     const darkTheme = createTheme({
         components: {
         },
@@ -39,5 +39,3 @@ const Layout = ({children}: PropsWithChildren<{}>) => {
 
 
 };
-
-export default Layout;

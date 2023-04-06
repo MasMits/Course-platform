@@ -1,19 +1,19 @@
+import * as React from "react";
 import Grid from "@mui/system/Unstable_Grid";
-import styles from "../../../styles/pages-styles/index-page.module.scss";
 import Link from "next/link";
-import CourseCard from "../CourseCard/CourseCard";
 import {Stack} from "@mui/system";
 import {Box, Pagination, Skeleton} from "@mui/material";
-import * as React from "react";
-import {ICourse} from "../../../../types/ICourse";
+import {CourseCard} from "../CourseCard";
 import {useState} from "react";
+import {ICourse} from "../../../../types/ICourse";
+import styles from "../../../styles/pages-styles/index-page.module.scss";
 
 export interface ICourseProps {
     courses:  ICourse[]  | undefined
     countPages: number | undefined
 }
 
-const CourseGrid = ({courses, countPages}: ICourseProps) => {
+export const CourseGrid = ({courses, countPages}: ICourseProps) => {
     const [page, setPage] = useState(1);
     const pageHandleChange = (event: React.ChangeEvent<unknown>, value: number) => {
         setPage(value);
@@ -59,5 +59,3 @@ const CourseGrid = ({courses, countPages}: ICourseProps) => {
         </>
     );
 };
-
-export default CourseGrid;
