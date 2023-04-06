@@ -4,6 +4,7 @@ import {Layout} from "../ui/components/Layout";
 import {CourseGrid} from "../ui/components/Home/CourseGrid";
 import {ICourse} from "../types/ICourse";
 import {fetchCoursesPreview} from "../api/fetchCoursesPreview";
+import {useCoursePreview} from "../hooks/useCoursePreview";
 
 export const getServerSideProps = async () => {
     try {
@@ -20,12 +21,14 @@ interface IHomeProps {
 }
 
 export default function Home(props: IHomeProps) {
+    const {courses, countPages} = useCoursePreview()
     return (
         <Layout>
             <Typography variant="h2" gutterBottom color="text.primary">
                 Choose your courses!
             </Typography>
-            <CourseGrid courses={props.courses} countPages={props.countPages}/>
+            {/*<CourseGrid courses={props.courses} countPages={props.countPages}/>*/}
+            <CourseGrid courses={courses?.courses} countPages={countPages} />
         </Layout>
     )
 }
