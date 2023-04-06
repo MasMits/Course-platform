@@ -21,14 +21,14 @@ interface IHomeProps {
 }
 
 export default function Home(props: IHomeProps) {
-    const {courses, countPages} = useCoursePreview()
+    // const {courses, countPages} = useCoursePreview()
     return (
         <Layout>
             <Typography variant="h2" gutterBottom color="text.primary">
                 Choose your courses!
             </Typography>
-            {/*<CourseGrid courses={props.courses} countPages={props.countPages}/>*/}
-            <CourseGrid courses={courses?.courses} countPages={countPages} />
+            <CourseGrid courses={props.courses} countPages={props.countPages}/>
+            {/*<CourseGrid courses={courses?.courses} countPages={countPages} />*/}
         </Layout>
     )
 }
