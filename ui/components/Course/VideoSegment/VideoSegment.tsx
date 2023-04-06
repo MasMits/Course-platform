@@ -4,7 +4,7 @@ import Typography from "@mui/material/Typography";
 import LockIcon from "@mui/icons-material/Lock";
 import LessonList from "./LessonList/LessonList";
 import * as React from "react";
-import {ICourseWithLessons} from "../../../types/ICourse";
+import {ICourseWithLessons} from "../../../../types/ICourse";
 import VideoApp from "./Video/Video";
 
 export interface ICourseProps {

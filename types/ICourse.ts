@@ -26,9 +26,7 @@ export interface ICourseWithLessons {
     }
     launchDate: string,
     title: string,
-    slug: string,
-    id: number,
-    lessonsCount: number,
+    id: string,
     rating: number,
     tags: string[],
     previewImageLink: string

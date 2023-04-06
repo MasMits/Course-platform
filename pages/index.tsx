@@ -1,7 +1,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import Layout from "../components/Layout/Layout";
-import CourseGrid from "../components/Home/CourseGrid/CourseGrid";
+import Layout from "../ui/components/Layout/Layout";
+import CourseGrid from "../ui/components/Home/CourseGrid/CourseGrid";
 import {ICourse} from "../types/ICourse";
 import {fetchCoursesPreview} from "../api/fetchCoursesPreview";
 

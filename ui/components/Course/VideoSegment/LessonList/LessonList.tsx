@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import {ListItemButton, ListItemIcon} from "@mui/material";
 import LockIcon from '@mui/icons-material/Lock';
-import {ILesson} from "../../../../types/ICourse";
+import {ILesson} from "../../../../../types/ICourse";
 import styles from './lesson-list.module.scss'
 
 interface ILessonListProps {

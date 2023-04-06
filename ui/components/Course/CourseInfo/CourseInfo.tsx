@@ -2,13 +2,14 @@ import React from 'react';
 import {Box} from "@mui/material";
 import styles from "../../../styles/pages-styles/lesson-page.module.scss";
 import Typography from "@mui/material/Typography";
-import {ICourseWithLessons} from "../../../types/ICourse";
+import {ICourseWithLessons} from "../../../../types/ICourse";
 
 export interface ICourseProps {
     data: ICourseWithLessons
 }
 
 const CourseInfo = ({data: course}: ICourseProps) => {
+    console.log(course)
     return (
         <Box className={styles.header}>
             <Box className={styles.image}>
@@ -23,6 +24,7 @@ const CourseInfo = ({data: course}: ICourseProps) => {
                 <Typography variant="body2" gutterBottom color="text.secondary">
                     {course.description}
                 </Typography>
+                <div id='test-1'>I'm Here</div>
             </Box>
         </Box>
     );

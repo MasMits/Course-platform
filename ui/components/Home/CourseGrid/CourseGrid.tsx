@@ -5,7 +5,7 @@ import CourseCard from "../CourseCard/CourseCard";
 import {Stack} from "@mui/system";
 import {Box, Pagination, Skeleton} from "@mui/material";
 import * as React from "react";
-import {ICourse} from "../../../types/ICourse";
+import {ICourse} from "../../../../types/ICourse";
 import {useState} from "react";
 
 export interface ICourseProps {
